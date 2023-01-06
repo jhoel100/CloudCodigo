@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: replit-clone-app
+spec:
+  replicas: 24
+  selector:
+    matchLabels:
+      app: replit-clone-app
+  template:
+    metadata:
+      labels:
+        app: replit-clone-app
+    spec:
+      containers:
+      - name: replit-clone
+        image: khannom/replit-clone:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

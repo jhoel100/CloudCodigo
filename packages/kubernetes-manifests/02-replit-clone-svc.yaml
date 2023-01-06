@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: replit-clone-svc
+spec:
+  selector:
+    app: replit-clone-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
